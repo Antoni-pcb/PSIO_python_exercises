@@ -168,7 +168,7 @@ def merge_ends(lst: Optional[List[Any]] = None) -> List[Any]:
     if lst == None or len(lst) == 0:
         return new_lst
     elif len(lst) < 4:
-        new_lst = lst[0] + lst[0``]
+        new_lst = lst[0] + lst[0]
         return new_lst
     else:
         new_lst = lst[:2] + lst [-2:]
