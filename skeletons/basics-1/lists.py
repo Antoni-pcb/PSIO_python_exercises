@@ -98,6 +98,7 @@ def list_condition_1(lst: List[int]) -> bool:
     :param lst: lista liczb całkowitych
     :return: (zob. opis)
     """
+    return len(lst) >= 2 and lst[1] == 5
     pass
 
 
@@ -110,6 +111,7 @@ def list_condition_2(lst: List[int]) -> bool:
     :param lst: lista liczb całkowitych
     :return: (zob. opis)
     """
+    return (len(lst) >= 2 and len(lst) <= 4) and lst[-1] == 3
     pass
 
 
@@ -121,6 +123,11 @@ def remove_first_three_elements(lst: List[Any]) -> None:
 
     :param lst: lista elementów dowolnego typu
     """
+    if len(lst) <= 3:
+        lst = []
+    else:
+        lst = lst[3:]
+    return lst
     pass
 
 
@@ -185,5 +192,3 @@ def is_palindrome(s: str) -> bool:
         inaczej wartość logiczna Fałsz
     """
     pass
-
-print(arg_condition([1,2,3]))
