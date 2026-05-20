@@ -111,7 +111,7 @@ def list_condition_2(lst: List[int]) -> bool:
     :param lst: lista liczb całkowitych
     :return: (zob. opis)
     """
-    return (len(lst) >= 2 and len(lst) <= 4) and lst[-1] == 3
+    return (len(lst) >= 2 and len(lst) <= 4) and lst[-2] == 3
     pass
 
 
@@ -123,11 +123,11 @@ def remove_first_three_elements(lst: List[Any]) -> None:
 
     :param lst: lista elementów dowolnego typu
     """
-    if len(lst) <= 3:
-        lst = []
+    if len(lst) >= 4:
+        del lst[:3]
     else:
-        lst = lst[3:]
-    return lst
+        del lst[:]
+    return None
     pass
 
 
@@ -142,6 +142,9 @@ def replace_last_two_elements(lst: List[int]) -> List[int]:
     :param lst: lista liczb całkowitych
     :return: lista liczb po ewentualnej zamianie
     """
+    if len(lst) >= 2:
+        return lst[:-2] + [9]
+    return lst[:]
     pass
 
 
@@ -161,6 +164,16 @@ def merge_ends(lst: Optional[List[Any]] = None) -> List[Any]:
     :param lst: lista, której końce mają zostać scalone (domyślnie None)
     :return: lista wynikowa, zawierająca elementy zgodnie ze schematem w opisie
     """
+    new_lst = []
+    if lst == None or len(lst) == 0:
+        return new_lst
+    elif len(lst) < 4:
+        new_lst.append(lst[0])
+        new_lst.append(lst[0])
+        return new_lst
+    else:
+        new_lst = lst[:2] + lst [-2:]
+        return new_lst
     pass
 
 
@@ -178,6 +191,10 @@ def remove_element_if_exists(lst: List[Any], e: Any) -> List[Any]:
     :return: lista powstała przez usunięcie z listy wejściowej pierwszego
         wystąpienia elementu `e`
     """
+    new_lst = lst[:]
+    if is_element_on_list(new_lst, e):
+        new_lst.remove(e)
+    return new_lst
     pass
 
 
@@ -191,4 +208,7 @@ def is_palindrome(s: str) -> bool:
     :return: wartość logiczna Prawda, jeśli łańcuch znaków jest palindromem,
         inaczej wartość logiczna Fałsz
     """
+    if s == s[::-1]:
+        return True
+    return False
     pass
