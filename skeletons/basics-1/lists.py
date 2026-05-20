@@ -18,6 +18,10 @@ def is_element_on_list(lst: List[Any], e: Any) -> bool:
     :param e: element, którego występowanie jest sprawdzane
     :return: True jeśli obiekt `e` występuje na liście `lst`, inaczej False
     """
+    for i in lst:
+        if i == e:
+            return True
+    return False
     pass
 
 
@@ -33,6 +37,16 @@ def element_xor(lst: List[Any], e1: Any, e2: Any) -> bool:
     :return: True jeśli obiekt `e1` znajduje się na liście `lst` ORAZ obiekt `e2`
         NIE znajduje się na liście `lst`, inaczej False
     """
+    e1_check = False
+    e2_check = True
+    for i in lst:
+        if i == e1:
+            e1_check = True
+        if i == e2:
+            e2_check = False
+    return e1_check and e2_check
+
+
     pass
 
 
@@ -47,6 +61,12 @@ def print_every_second_elem(lst: List[str]) -> None:
 
     :param lst: lista łańcuchów znaków
     """
+    new_lst = []
+    for i in range(len(lst)):
+        if i % 2 == 1:
+            continue
+        new_lst.append(i + " -> " + lst[i])
+    return new_lst
     pass
 
 
@@ -65,6 +85,7 @@ def arg_condition(arg: Optional[List[Any]]) -> bool:
     :return: True jeśli argument jest listą zawierającą więcej niż 2 elementy LUB
         jeśli argument ma wartość None, inaczej False
     """
+    return arg == None or len(arg) > 2
     pass
 
 
@@ -164,3 +185,5 @@ def is_palindrome(s: str) -> bool:
         inaczej wartość logiczna Fałsz
     """
     pass
+
+print(arg_condition([1,2,3]))

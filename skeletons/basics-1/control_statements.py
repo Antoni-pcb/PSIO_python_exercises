@@ -19,6 +19,10 @@ def parity_str(n: int) -> str:
     :param n: liczba, której parzystość jest badana
     :return: "parzysta" jeśli `n` jest liczbą parzystą, w przeciwym razie "nieparzysta"
     """
+    if (n % 2 == 0):
+        return ("parzysta")
+    else:
+        return ("nieparzysta")
     pass
 
 
@@ -33,6 +37,12 @@ def plf(x: float) -> float:
     :param x: liczba rzeczywista
     :return: wartość funkcji f(x)
     """
+    if x < 3:
+        return 1
+    elif x < 10:
+        return 1.5
+    else:
+        return 4
     pass
 
 
@@ -47,6 +57,11 @@ def factorial(n: int) -> int:
     :param n: liczba naturalna
     :return: silnia liczby `n`
     """
+    output = 1
+
+    for i in range(n):
+        output = output * (i + 1)
+    return output
     pass
 
 
@@ -61,4 +76,9 @@ def min_pow_2(n: int) -> int:
     :param n: liczba naturalna
     :return: najmniejszą potęgę 2 większą od zadanej liczby całkowitej `n`
     """
+    pow = 1
+
+    while pow <= n:
+        pow = 2 * pow
+    return pow
     pass
