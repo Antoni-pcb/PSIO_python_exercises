@@ -19,6 +19,9 @@ def get_unique_letters(s: str) -> Set[str]:
     :return: zbiór unikalnych liter w łańcuchu znaków, jeśli łańcuch zawiera co
         najmniej 3 znaki, inaczej zbiór pusty
     """
+    if len(s) >= 3:
+        return set(s)
+    return set()
     pass
 
 
@@ -39,6 +42,7 @@ def products_to_buy(list1: ShoppingList, list2: ShoppingList) -> Set[str]:
     :param list2: druga lista zakupowa
     :return: zbiór produktów, które należy kupić
     """
+    return list1.keys() | list2.keys()
     pass
 
 
@@ -52,6 +56,7 @@ def products_only_on_one_list(list1: ShoppingList, list2: ShoppingList) -> int:
     :param list2: druga lista zakupowa
     :return: liczba produktów, które występują tylko na jednej z list zakupowych
     """
+    return len(list1.keys() ^ list2.keys())
     pass
 
 
@@ -63,6 +68,14 @@ def two_dice_rolls_combinations() -> Dict[int, Set[Tuple[int, int]]]:
     :return: słownik zawierający mapowanie sumy oczek na zbiór kombinacji
         wyników rzutu parą kostek
     """
+    dice_rolls = {}
+    all_rolls = []
+    for first_die in range(1,7):
+        for second_die in range(1,7):
+            all_rolls.append((first_die, second_die))
+    for roll_sum in range(2,13):
+        dice_rolls[roll_sum] = {pair for pair in all_rolls if sum(pair) == roll_sum}
+    return dice_rolls
     pass
 
 
@@ -70,3 +83,8 @@ def append_and_sort(lst: List[str]) -> List[str]:
     """Utwórz kopię listy wejściowej, dodaj do niej element 'abc', a na koniec
         zwróć jej elementy posortowane w porządku alfabetycznym (rosnącym).
     """
+    new_lst = lst.copy()
+    new_lst.append('abc')
+    new_lst.sort()
+    return new_lst
+    pass

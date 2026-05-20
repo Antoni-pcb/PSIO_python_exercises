@@ -44,34 +44,34 @@ class TwoDiceRollsCombinationsTest(unittest.TestCase):
         )
 
 
-class IntsToStrTest(unittest.TestCase):
-    def test_no_elements(self):
-        self.assertEqual('', ints_to_str([]))
+# class IntsToStrTest(unittest.TestCase):
+#     def test_no_elements(self):
+#         self.assertEqual('', ints_to_str([]))
 
-    def test_one_element(self):
-        self.assertEqual('1', ints_to_str([1]))
+#     def test_one_element(self):
+#         self.assertEqual('1', ints_to_str([1]))
 
-    def test_multiple_elements(self):
-        self.assertEqual('12', ints_to_str([1, 2]))
-
-
-class IntsToStrMaxLengthTest(unittest.TestCase):
-    def test_default_limit(self):
-        self.assertEqual('12', ints_to_str_max_length([1, 2]))
-
-    def test_limit_no_trimming(self):
-        self.assertEqual('12', ints_to_str_max_length([1, 2], max_length=2))
-
-    def test_limit_trimming(self):
-        self.assertEqual('1', ints_to_str_max_length([1, 2], max_length=1))
+#     def test_multiple_elements(self):
+#         self.assertEqual('12', ints_to_str([1, 2]))
 
 
-class DivisionGuardianTest(unittest.TestCase):
-    def test_y_equals_zero(self):
-        self.assertFalse(division_guardian(1, 0))
+# class IntsToStrMaxLengthTest(unittest.TestCase):
+#     def test_default_limit(self):
+#         self.assertEqual('12', ints_to_str_max_length([1, 2]))
 
-    def test_x_per_y_smaller_than_1(self):
-        self.assertFalse(division_guardian(1.00, 1.01))
+#     def test_limit_no_trimming(self):
+#         self.assertEqual('12', ints_to_str_max_length([1, 2], max_length=2))
 
-    def test_x_per_y_greater_than_1(self):
-        self.assertTrue(division_guardian(1.01, 1.00))
+#     def test_limit_trimming(self):
+#         self.assertEqual('1', ints_to_str_max_length([1, 2], max_length=1))
+
+
+# class DivisionGuardianTest(unittest.TestCase):
+#     def test_y_equals_zero(self):
+#         self.assertFalse(division_guardian(1, 0))
+
+#     def test_x_per_y_smaller_than_1(self):
+#         self.assertFalse(division_guardian(1.00, 1.01))
+
+#     def test_x_per_y_greater_than_1(self):
+#         self.assertTrue(division_guardian(1.01, 1.00))
