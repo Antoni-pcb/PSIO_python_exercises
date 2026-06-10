@@ -24,6 +24,16 @@ class TestProduct(unittest.TestCase):
     def test_eq(self):
         self.assertEqual(Product(id_="P1", name="", price=0), Product(id_="P1", name="", price=0))
         self.assertNotEqual(Product(id_="P1", name="X", price=0), Product(id_="P1", name="", price=0))
+    
+    def test_generate_id(self):
+        self.assertEqual("X1_2", Product.generate_id("X1"))
+        self.assertEqual("AB_3", Product.generate_id("A B"))
+ 
+    def test_init_no_id(self):
+        product = Product(id_=None, name="Robot", price=10.2)
+        self.assertEqual("Robot_5", product.id)
+        self.assertEqual("Robot", product.name)
+        self.assertEqual(10.2, product.price)
 
 
 

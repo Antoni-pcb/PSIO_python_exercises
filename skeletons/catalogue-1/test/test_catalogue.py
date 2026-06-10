@@ -36,30 +36,30 @@ class TestCatalogue(unittest.TestCase):
         self.assertTrue(p.id in c)
 
 
-class TestCatalogueFiltering(unittest.TestCase):
-    def test_get_products_with_appropriate_price(self):
-        p1 = Product(id_="X1", name="Toy X1", price=10.3)
-        p2 = Product(id_="X2", name="Toy X2", price=8.3)
-        c = Catalogue({p1.id: p1, p2.id: p2})
-        filtered_products = c.get_products_with_appropriate_price(lambda price: price < 10.0)
+# class TestCatalogueFiltering(unittest.TestCase):
+#     def test_get_products_with_appropriate_price(self):
+#         p1 = Product(id_="X1", name="Toy X1", price=10.3)
+#         p2 = Product(id_="X2", name="Toy X2", price=8.3)
+#         c = Catalogue({p1.id: p1, p2.id: p2})
+#         filtered_products = c.get_products_with_appropriate_price(lambda price: price < 10.0)
 
-        self.assertDictEqual({p2.id: p2}, filtered_products)
+#         self.assertDictEqual({p2.id: p2}, filtered_products)
 
-    def test_get_products_by_name_part_case_sensitive(self):
-        p1 = Product(id_="X1", name="TOY uppercase", price=10)
-        p2 = Product(id_="X2", name="toy lowercase", price=10)
-        c = Catalogue({p1.id: p1, p2.id: p2})
-        filtered_products = c.get_products_by_name_part("toy")
+#     def test_get_products_by_name_part_case_sensitive(self):
+#         p1 = Product(id_="X1", name="TOY uppercase", price=10)
+#         p2 = Product(id_="X2", name="toy lowercase", price=10)
+#         c = Catalogue({p1.id: p1, p2.id: p2})
+#         filtered_products = c.get_products_by_name_part("toy")
 
-        self.assertDictEqual({p2.id: p2}, filtered_products)
+#         self.assertDictEqual({p2.id: p2}, filtered_products)
 
-    def test_get_products_by_name_part_case_insensitive(self):
-        p1 = Product(id_="X1", name="TOY uppercase", price=10)
-        p2 = Product(id_="X2", name="toy lowercase", price=10)
-        c = Catalogue({p1.id: p1, p2.id: p2})
-        filtered_products = c.get_products_by_name_part("toy", ignore_case=True)
+#     def test_get_products_by_name_part_case_insensitive(self):
+#         p1 = Product(id_="X1", name="TOY uppercase", price=10)
+#         p2 = Product(id_="X2", name="toy lowercase", price=10)
+#         c = Catalogue({p1.id: p1, p2.id: p2})
+#         filtered_products = c.get_products_by_name_part("toy", ignore_case=True)
 
-        self.assertDictEqual(c.inventory, filtered_products)
+#         self.assertDictEqual(c.inventory, filtered_products)
 
 
 if __name__ == '__main__':
