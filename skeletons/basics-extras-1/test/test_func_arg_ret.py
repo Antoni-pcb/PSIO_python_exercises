@@ -13,7 +13,7 @@ class TestFuncArgRet(unittest.TestCase):
         self.assertEqual(5, result.max)
 
     def test_with_limit(self):
-        result = min_max([1, 5], upper_limit=3)
+        result = min_max([1, 3, 5], upper_limit=3)
         self.assertEqual(1, result.min)
         self.assertEqual(3, result.max)
 
